@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Conecta Aluno</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="login" role="dialog" aria-label="Entrar">
+  <div class="l-side"><div class="dots-logo"><img src="logo.jpeg" alt="Conecta Aluno" width="140px"></div><h2>Sua jornada universitária, mais conectada!</h2><p>Disciplinas, bolsas, eventos e comunidades em um só lugar.✨</p></div>
+  <div class="l-form"><button class="ico tema-btn tema-login" type="button">☀️</button><form class="l-box" id="lf" novalidate>
+    <b style="font-size:20px">Conecta Aluno</b>
+    <h1>Entrar</h1><p>Use seu e-mail e senha para acessar.</p>
+    <label for="em">E-mail</label><input id="em" type="text" autocomplete="username" placeholder="E-mail">
+    <label for="pw">Senha</label><input id="pw" type="password" autocomplete="current-password" placeholder="Senha">
+    <div class="err" id="err" role="alert"></div>
+    <button class="btn" type="submit">Entrar</button>
+    <div class="l-links"><a href="#">Esqueci minha senha</a><a href="#">Criar conta</a></div>
+  </form></div>
+</div>
+<header>
+  <a class="logo" href="#"><div class="dots-logo2"> <img src="logo.jpeg" alt="" width="60px"></div><div><b>Conecta Aluno</b><small>Sua jornada universitária, mais conectada!</small></div></a>
+  <label class="search">🔍 <input type="search" placeholder="Buscar pessoas, disciplinas, eventos, bolsas..." aria-label="Buscar"></label>
+  <div class="hr">
+    <button class="ico" aria-label="Notificações">🔔<em>1</em></button>
+    <button class="ico" aria-label="Mensagens">💬</button>
+    <button class="ico tema-btn" type="button">☀️</button>
+    <div class="me"><div class="av" data-view="perfil" style="cursor:pointer" title="Meu perfil">🧑‍🦱</div><div><b>Olá, <span class="nome">Rubens</span>!</b><small><span data-k="curso">Administração - UECE</span> <button class="out" id="out">Sair</button></small></div></div>
+  </div>
+</header>
+
+<div class="layout">
+  <div class="left">
+    <nav aria-label="Menu principal">
+      <a href="#"><span>📦</span>Disciplinas</a><a href="#"><span>🧑‍🏫</span>Professores</a><a href="#"><span>💡</span>Linhas de Pesquisa</a>
+      <a href="#"><span>🎓</span>Pós-Graduação</a><a href="#"><span>💼</span>Bolsas e Vagas</a><a href="#"><span>📅</span>Eventos</a>
+      <a href="#"><span>👥</span>Comunidades</a><a href="#"><span>🧑‍🤝‍🧑</span>Amigos</a><a href="#"><span>✉️</span>Mensagens</a>
+      <a href="#"><span>📚</span>Biblioteca</a><a href="#"><span>⚙️</span>Serviços</a><a href="#" data-view="ajuda"><span>❓</span>Ajuda</a>
+    </nav>
+    <div class="eco"><b>🌿 Universidade mais sustentável</b><p>Apoie iniciativas da <span class="sg">UECE</span> pelo meio ambiente.</p><a href="#"><b style="display:inline">Saiba mais →</b></a></div>
+  </div>
+
+  <main id="viewInicio">
+    <section class="hero">
+      <div><h1>Olá, <span class="nome">Rubens</span>!</h1><p>Aqui você encontra tudo para viver a universidade de forma mais simples, conectada e com mais oportunidades.</p></div>
+    </section>
+
+    <div class="short">
+      <a href="#"><span style="background:#dff3e8">🎓</span>Minhas disciplinas</a>
+      <a href="#"><span style="background:#e8e8fb">👥</span>Professores e pesquisa</a>
+      <a href="#"><span style="background:#fbefd6">💼</span>Bolsas e vagas</a>
+      <a href="#"><span style="background:#fbe2e4">📅</span>Eventos na <span class="sg">UECE</span></a>
+      <a href="#"><span style="background:#dcebfb">🧑‍🤝‍🧑</span>Comunidades</a>
+      <a href="#"><span style="background:var(--chip)">＋</span>Mais</a>
+    </div>
+
+    <div class="feedh">
+      <h2>Feed</h2>
+      <div class="tabs" role="tablist"><button class="on">Todos</button><button>Amigos</button><button>Eventos</button><button>Oportunidades</button><button>Comunidades</button></div>
+      <span class="sort">Mais recentes ⌄</span>
+    </div>
+
+    <div class="card compose">
+      <div class="row"><div class="av">🧑‍🦱</div><div class="fake">No que você está pensando?</div></div>
+      <div class="acts"><button>✏️ Publicar</button><button>🖼️ Foto</button><button>📅 Evento</button><button>📄 Artigo</button><button>📊 Enquete</button></div>
+    </div>
+
+    <article class="card post">
+      <header><div class="av" style="background:linear-gradient(135deg,#7cc8a0,#6c4de0)">👩🏾</div><div><div class="n" data-k="p1a">Lia Rodrigues</div><div class="m" data-k="p1m">Pós-Graduação em Administração - UECE • 2 h</div></div></header>
+      <p data-k="p1t">Saiu o edital de bolsas de iniciação científica!<br>Ótima oportunidade para quem quer se aproximar da pesquisa. ✨<br>Link no site da UECE.</p>
+      <div class="pa"><button class="like liked" data-n="24">❤️ <span>24</span></button><button>💬 3</button><button>↪ Compartilhar</button><button class="save" aria-label="Salvar">🔖</button></div>
+    </article>
+
+    <article class="card post">
+      <header><div class="av" style="background:var(--pri-soft)">👥</div><div><div class="n" data-k="p2a">Grupo de Estudos - Trabalho e Sociedade</div><div class="m" data-k="p2m">Comunidade • 5 h</div></div></header>
+      <p data-k="p2t">Nosso próximo encontro será na terça (16/09), às 14h, no CESA.<br>Tema: “Trabalho, tecnologia e universidade”.<br>Todos são bem-vindos!</p>
+      <div class="pa"><button class="like liked" data-n="18">❤️ <span>18</span></button><button>💬 2</button><button>↪ Compartilhar</button><button class="save" aria-label="Salvar">🔖</button></div>
+    </article>
+  </main>
+
+  <main id="viewPerfil" hidden>
+    <section class="card perfil-top">
+      <div class="capa"></div>
+      <div class="p-head">
+        <div class="av p-av">🧑‍🦱</div>
+        <div class="p-info"><h1><span class="nome">Rubens</span></h1><p class="p-sub"><span id="pCurso"></span></p><p class="p-mail" id="pEmail"></p></div>
+        <button class="btn" id="editBio" type="button">✏️ Editar perfil</button>
+      </div>
+      <div class="p-stats"><div><b>128</b><span>Amigos</span></div><div><b>5</b><span>Comunidades</span></div><div><b>14</b><span>Publicações</span></div></div>
+    </section>
+    <div class="p-grid">
+      <section class="card"><h3>Sobre mim</h3>
+        <p id="bioTxt" class="bio"></p>
+        <textarea id="bioIn" maxlength="300" aria-label="Sobre mim" hidden></textarea>
+        <div class="bio-actions" id="bioAcoes" hidden><button class="btn" id="bioSalvar" type="button">Salvar</button><button class="btn-sec" id="bioCancelar" type="button">Cancelar</button></div>
+      </section>
+      <section class="card"><h3>Dados acadêmicos</h3><dl class="dl" id="pDados"></dl></section>
+      <section class="card"><h3>Disciplinas do semestre</h3><ul class="disc" id="pDisc"></ul></section>
+      <section class="card"><h3>Interesses</h3><div class="chips" id="pInt"></div></section>
+    </div>
+  </main>
+
+  <main id="viewAjuda" hidden>
+    <section class="card">
+      <h1 class="pg-t">Ajuda e SAC</h1>
+      <p class="pg-s">Tire dúvidas, fale com a equipe do Conecta Aluno e ajuste o site ao seu jeito de usar.</p>
+      <button class="btn" type="button" data-chat>💬 Falar com o <span class="ia">Francis</span></button>
+    </section>
+    <div class="p-grid">
+      <section class="card"><h3>Fale com a equipe (SAC)</h3>
+        <form class="sac" id="sacForm" novalidate>
+          <label for="sacAssunto">Assunto</label>
+          <select id="sacAssunto"><option>Dúvida</option><option>Problema técnico</option><option>Sugestão</option><option>Denúncia</option><option>Acessibilidade</option></select>
+          <label for="sacEmail">Seu e-mail</label><input id="sacEmail" type="email" autocomplete="email">
+          <label for="sacMsg">Mensagem</label><textarea id="sacMsg" maxlength="600"></textarea>
+          <div class="err" id="sacErr" role="alert"></div>
+          <button class="btn" type="submit">Enviar</button>
+        </form>
+        <p class="sac-ok" id="sacOk" role="status" hidden></p>
+      </section>
+      <section class="card"><h3>Acessibilidade</h3>
+        <div class="ac-row"><span>Tamanho do texto</span><div class="ac-btns"><button type="button" data-fonte="-1" aria-label="Diminuir o texto">A−</button><button type="button" data-fonte="0" aria-label="Tamanho normal do texto">A</button><button type="button" data-fonte="1" aria-label="Aumentar o texto">A+</button></div></div>
+        <label class="ac-row"><span>Alto contraste</span><input type="checkbox" id="acContraste"></label>
+        <label class="ac-row"><span>Reduzir animações</span><input type="checkbox" id="acMovimento"></label>
+        <label class="ac-row"><span>Tradutor de Libras (VLibras)</span><input type="checkbox" id="acLibras"></label>
+        <button class="btn-sec" type="button" id="acReset">Restaurar padrão</button>
+      </section>
+      <section class="card"><h3>Canais de atendimento</h3><dl class="dl" id="sacCanais"></dl></section>
+      <section class="card"><h3>Perguntas frequentes</h3>
+        <details><summary>Como funciona a matrícula?</summary><p>Prazos e etapas ficam no calendário acadêmico e nos editais da sua universidade. O Francis pode orientar, mas confirme datas importantes no setor responsável.</p></details>
+        <details><summary>Onde encontro bolsas e vagas?</summary><p>No menu Bolsas e Vagas. Cada oportunidade mostra a fonte oficial e a data de validade.</p></details>
+        <details><summary>Esqueci minha senha. E agora?</summary><p>Na tela de entrada, use o link "Esqueci minha senha". Se não conseguir, envie uma mensagem pelo SAC.</p></details>
+        <details><summary>Como denunciar um conteúdo ou comportamento?</summary><p>Envie uma mensagem pelo SAC com o assunto "Denúncia", informando onde viu o conteúdo.</p></details>
+        <details><summary>O Francis substitui o atendimento humano?</summary><p>Não. Ele orienta e responde dúvidas comuns. Para prazos e decisões, confirme no setor responsável; o SAC encaminha para uma pessoa da equipe.</p></details>
+      </section>
+    </div>
+  </main>
+
+  <aside class="right">
+    <section class="card">
+      <div class="sec-h"><h3 data-k="mapaTitulo">Mapa da UECE - Campus do Itaperi</h3></div>
+      <div id="mapaReal"><iframe class="mapframe" title="Mapa do campus no Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+      <div class="map" id="mapaEsq" hidden>
+        <div class="leg">
+          <div><i style="background:#4a9be8"></i>Prédios da <span class="sg">UECE</span></div><div><i style="background:#f2c94c"></i>Principais acessos</div><div><i style="background:#fff;border:1px solid #bbb"></i>Vias internas</div><div><i style="border-top:2px dashed #e5484d;height:0"></i>Limite do campus</div>
+          <hr style="border:0;border-top:1px solid #cfe0d5;margin:8px 0"><b>Principais áreas</b>
+          <span id="areas" style="display:contents"></span>
+        </div>
+        <div class="mapv" role="img" aria-label="Mapa esquemático do campus">
+          <div class="b" style="left:12%;top:8%;width:10%;height:16%"></div><div class="b" style="left:30%;top:14%;width:16%;height:10%"></div>
+          <div class="b" style="left:50%;top:10%;width:14%;height:22%"></div><div class="b" style="left:22%;top:40%;width:18%;height:12%"></div>
+          <div class="b" style="left:46%;top:44%;width:12%;height:14%"></div><div class="b" style="left:10%;top:62%;width:14%;height:10%"></div>
+          <div class="lake" data-k="lago">Lagoa do Itaperi</div>
+        </div>
+      </div>
+      <a class="full" id="mapaLink" href="#" target="_blank" rel="noopener">🗺️ Abrir no Google Maps</a>
+    </section>
+
+    <section class="card" style="margin-top:16px">
+      <div class="sec-h"><h3>Próximos eventos</h3><a href="#">Ver todos →</a></div>
+      <div id="eventos"></div>
+</section>
+
+  </aside>
+</div>
+
+<footer>
+  <span>Conhecimento conecta pessoas. Pessoas transformam realidades.</span>
+  <nav><a href="#">Sobre</a><a href="#">Privacidade</a><a href="#">Termos</a><a href="#">Contato</a></nav>
+</footer>
+
+
+<div class="fab-wrap">
+  <div class="fab-dica" id="fabDica" hidden>Oi! Precisa de ajuda? 👋</div>
+  <button class="fab" id="fab" type="button" aria-expanded="false" aria-controls="chatPanel" aria-label="Abrir chat com o assistente"><img src="Francis.jpeg" alt="" class="franciss"><span class="on-dot"></span></button>
+</div>
+<section class="chat-panel" id="chatPanel" role="dialog" aria-label="Chat com o assistente virtual" hidden>
+  <div class="cp-head">
+    <div class="av cp-av"><img src="Francis.jpeg" width="30px" alt="" class="circus"></div>
+    <div class="cp-t"><b><span class="ia">Francis</span></b><small>Seu assistente virtual na <span class="sg">UECE</span></small></div>
+    <a class="cp-b" id="cpNova" href="#" target="_blank" rel="noopener" aria-label="Abrir o chat em uma nova aba" title="Abrir em nova aba">↗</a>
+    <button class="cp-b" id="cpFechar" type="button" aria-label="Fechar chat">✕</button>
+  </div>
+  <iframe id="cpFrame" title="Conversa com o assistente virtual" allow="clipboard-write"></iframe>
+  <p class="cp-vazio" id="cpVazio" hidden>O assistente desta universidade ainda não foi configurado.</p>
+</section>
+
+<script src="universidades.js"></script>
+<script src="script.js"></script>
+
+<style>
+/* Mural demonstrativo Conecta Aluno */
+#demoMural { margin-top: 20px; }
+#demoMural textarea {
+  box-sizing: border-box; width: 100%; padding: 14px;
+  border: 1px solid var(--line, #ddd); border-radius: 12px;
+  background: var(--bg, white); color: inherit; font: inherit; resize: vertical;
+}
+#demoMural .demo-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 10px; margin-top: 10px;
+}
+#demoMural .demo-post { margin: 14px 0; padding: 18px; }
+#demoMural .demo-post-head { display: flex; align-items: center; gap: 10px; }
+#demoMural .demo-avatar {
+  width: 42px; height: 42px; border-radius: 50%; display: grid;
+  place-items: center; background: var(--pri-soft, #e5f4ea); flex-shrink: 0;
+}
+#demoMural .demo-author { font-weight: 700; }
+#demoMural .demo-date { font-size: 12px; color: var(--mut, #777); }
+#demoMural .demo-content { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.6; }
+#demoMural .demo-actions {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;
+  border-top: 1px solid var(--line, #eee); padding-top: 10px;
+}
+#demoMural .demo-actions button, #demoMural .demo-filter {
+  border: 0; border-radius: 8px; padding: 8px 10px;
+  background: transparent; color: inherit; cursor: pointer;
+}
+#demoMural button:hover { background: var(--chip, #eee); }
+#demoMural .demo-filter.active { background: var(--grn, #dff3e8); }
+#demoMural .demo-empty { padding: 20px; text-align: center; color: var(--mut, #777); }
+#demoMural .demo-status { font-size: 12px; color: var(--mut, #777); margin: 12px 0; }
+</style>
+
+<script>
+(() => {
+  const main = document.querySelector("#viewInicio");
+  if (!main) return;
+
+  // Mantém o cabeçalho e os atalhos originais do site.
+  const atalhos = main.querySelector(".short");
+  if (!atalhos) return;
+  let el = atalhos.nextElementSibling;
+  while (el) {
+    const next = el.nextElementSibling;
+    el.remove();
+    el = next;
+  }
+
+  main.insertAdjacentHTML("beforeend", `
+    <section id="demoMural">
+      <div class="feedh">
+        <h2>Mural da comunidade 🎓</h2>
+      </div>
+      <div class="card compose">
+        <form id="demoForm">
+          <label for="demoTexto"><b>Compartilhe algo com seus colegas</b></label>
+          <div style="margin-top:12px">
+            <textarea id="demoTexto" rows="3" maxlength="1000"
+              placeholder="Tem alguma novidade, dúvida ou oportunidade?" required></textarea>
+          </div>
+          <div class="demo-footer">
+            <small id="demoContador">0/1000</small>
+            <button class="btn" type="submit">✏️ Publicar</button>
+          </div>
+          <p id="demoAviso" role="status"></p>
+        </form>
+      </div>
+      <div class="feedh">
+        <button type="button" class="demo-filter active" data-filter="all">Todas as publicações</button>
+        <button type="button" class="demo-filter" data-filter="saved">🔖 Favoritos</button>
+      </div>
+      <p class="demo-status">Modo de demonstração: os dados ficam neste navegador.</p>
+      <div id="demoLista"></div>
+    </section>
+  `);
+
+  const $ = s => document.querySelector(s);
+  const storage = {
+    get(key, fallback) {
+      try {
+        const v = JSON.parse(localStorage.getItem(key));
+        return v ?? fallback;
+      } catch { return fallback; }
+    },
+    set(key, value) {
+      try { localStorage.setItem(key, JSON.stringify(value)); }
+      catch { alert("Não foi possível salvar os dados neste navegador."); }
+    }
+  };
+
+  let email = "";
+  let nome = "Estudante";
+  let filtro = "all";
+
+  const key = tipo => `ca_demo_${tipo}_${email.toLowerCase()}`;
+  const getPosts = () => storage.get("ca_demo_mural_posts", []);
+  const setPosts = posts => storage.set("ca_demo_mural_posts", posts);
+  const getIds = tipo => storage.get(key(tipo), []);
+  const setIds = (tipo, ids) => storage.set(key(tipo), ids);
+
+  // Publicações de exemplo para a apresentação.
+  if (!Array.isArray(storage.get("ca_demo_mural_posts", null))) {
+    setPosts([
+      {
+        id: "exemplo1",
+        nome: "Marina Costa",
+        email: "marina@exemplo.com",
+        texto: "Pessoal, alguém sabe quando sai o próximo edital de bolsas? Vamos compartilhar as oportunidades por aqui! 🎓",
+        data: Date.now() - 3600000
+      },
+      {
+        id: "exemplo2",
+        nome: "Pedro Henrique",
+        email: "pedro@exemplo.com",
+        texto: "Estou organizando um grupo de estudos para as disciplinas deste semestre. Quem tiver interesse, vamos conversar! 📚",
+        data: Date.now() - 1800000
+      }
+    ]);
+  }
+
+  function entrar() {
+    const login = $("#login");
+    if (login) login.classList.add("hide");
+    document.body.style.overflow = "";
+    document.querySelectorAll(".nome").forEach(e => e.textContent = nome);
+    const emailPerfil = $("#pEmail");
+    if (emailPerfil) emailPerfil.textContent = email;
+    render();
+  }
+
+  // Login fictício: serve somente para a apresentação.
+  const loginForm = $("#lf");
+  if (loginForm) {
+    loginForm.addEventListener("submit", e => {
+      e.preventDefault();
+      const campoEmail = $("#em");
+      const campoSenha = $("#pw");
+      const aviso = $("#err");
+      email = (campoEmail?.value || "").trim().toLowerCase();
+      const senha = campoSenha?.value || "";
+
+      if (!email.includes("@") || !email.includes(".")) {
+        if (aviso) aviso.textContent = "Digite um e-mail válido para continuar.";
+        return;
+      }
+      if (senha.length < 6) {
+        if (aviso) aviso.textContent = "Use uma senha com pelo menos 6 caracteres.";
+        return;
+      }
+
+      nome = email.split("@")[0]
+        .replace(/[._-]+/g, " ")
+        .replace(/\b\p{L}/gu, letra => letra.toUpperCase());
+
+      entrar();
+    });
+  }
+
+  const sair = $("#out");
+  if (sair) sair.addEventListener("click", e => {
+    e.preventDefault();
+    const login = $("#login");
+    if (login) login.classList.remove("hide");
+    document.body.style.overflow = "hidden";
+  });
+
+  const texto = $("#demoTexto");
+  texto.addEventListener("input", () => {
+    $("#demoContador").textContent = `${texto.value.length}/1000`;
+  });
+
+  $("#demoForm").addEventListener("submit", e => {
+    e.preventDefault();
+    if (!email) {
+      $("#demoAviso").textContent = "Entre no site para publicar.";
+      return;
+    }
+    const conteudo = texto.value.trim();
+    if (!conteudo) return;
+
+    const posts = getPosts();
+    posts.push({
+      id: "p" + Date.now() + Math.random().toString(16).slice(2),
+      nome,
+      email,
+      texto: conteudo,
+      data: Date.now()
+    });
+    setPosts(posts);
+    texto.value = "";
+    $("#demoContador").textContent = "0/1000";
+    $("#demoAviso").textContent = "Publicação criada!";
+    filtro = "all";
+    atualizarFiltros();
+    render();
+  });
+
+  function atualizarFiltros() {
+    document.querySelectorAll("#demoMural [data-filter]").forEach(btn => {
+      btn.classList.toggle("active", btn.dataset.filter === filtro);
+    });
+  }
+
+  document.querySelectorAll("#demoMural [data-filter]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      filtro = btn.dataset.filter;
+      atualizarFiltros();
+      render();
+    });
+  });
+
+  function render() {
+    const lista = $("#demoLista");
+    lista.replaceChildren();
+
+    let posts = getPosts().sort((a, b) => b.data - a.data);
+    if (filtro === "saved") {
+      const favoritos = getIds("favoritos");
+      posts = posts.filter(p => favoritos.includes(p.id));
+    }
+
+    if (!posts.length) {
+      const vazio = document.createElement("div");
+      vazio.className = "card demo-empty";
+      vazio.textContent = filtro === "saved"
+        ? "Você ainda não favoritou nenhuma publicação."
+        : "O mural está vazio. Faça a primeira publicação!";
+      lista.append(vazio);
+      return;
+    }
+
+    const curtidas = getIds("curtidas");
+    const favoritos = getIds("favoritos");
+
+    posts.forEach(post => {
+      const card = document.createElement("article");
+      card.className = "card demo-post";
+
+      const cabecalho = document.createElement("div");
+      cabecalho.className = "demo-post-head";
+
+      const avatar = document.createElement("div");
+      avatar.className = "demo-avatar";
+      avatar.textContent = (post.nome || "A").charAt(0).toUpperCase();
+
+      const dados = document.createElement("div");
+      const autor = document.createElement("div");
+      autor.className = "demo-author";
+      autor.textContent = post.nome;
+
+      const data = document.createElement("div");
+      data.className = "demo-date";
+      data.textContent = new Date(post.data).toLocaleString("pt-BR", {
+        dateStyle: "short", timeStyle: "short"
+      });
+
+      dados.append(autor, data);
+      cabecalho.append(avatar, dados);
+
+      const conteudo = document.createElement("p");
+      conteudo.className = "demo-content";
+      conteudo.textContent = post.texto;
+
+      const acoes = document.createElement("div");
+      acoes.className = "demo-actions";
+
+      const curtir = document.createElement("button");
+      curtir.type = "button";
+      curtir.textContent = `${curtidas.includes(post.id) ? "❤️" : "🤍"} Curtir`;
+      curtir.addEventListener("click", () => {
+        const ids = getIds("curtidas");
+        setIds("curtidas", ids.includes(post.id)
+          ? ids.filter(id => id !== post.id) : [...ids, post.id]);
+        render();
+      });
+
+      const salvar = document.createElement("button");
+      salvar.type = "button";
+      salvar.textContent = favoritos.includes(post.id)
+        ? "🔖 Salvo" : "☆ Favoritar";
+      salvar.addEventListener("click", () => {
+        const ids = getIds("favoritos");
+        setIds("favoritos", ids.includes(post.id)
+          ? ids.filter(id => id !== post.id) : [...ids, post.id]);
+        render();
+      });
+
+      acoes.append(curtir, salvar);
+
+      if (email && post.email === email) {
+        const excluir = document.createElement("button");
+        excluir.type = "button";
+        excluir.textContent = "🗑️ Excluir";
+        excluir.addEventListener("click", () => {
+          if (!confirm("Deseja excluir esta publicação?")) return;
+          setPosts(getPosts().filter(p => p.id !== post.id));
+          render();
+        });
+        acoes.append(excluir);
+      }
+
+      card.append(cabecalho, conteudo, acoes);
+      lista.append(card);
+    });
+  }
+
+  // Deixa o mural pronto mesmo antes de entrar.
+  render();
+})();
+</script>
+
+</body>
+</html>
