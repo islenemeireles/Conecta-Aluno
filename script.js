@@ -3,12 +3,13 @@ document.querySelectorAll('.like').forEach(b=>b.onclick=()=>{const on=b.classLis
 const L=document.getElementById('login');
 function nomeDe(v){let n=v.split('@')[0].trim();return n?n.charAt(0).toUpperCase()+n.slice(1):'Aluno'}
 function detectar(email){
-  const dom=(email.split('@')[1]||'').toLowerCase();
-  for(const k in UNIS){if(dom.includes(k))return k}
-  return 'uece'; // padrão da demonstração quando o domínio não é reconhecido
+  const dom=(email.split('@')[1]||'').trim().toLowerCase();
+  for(const k in UNIS){if((UNIS[k].dominios||[]).some(d=>dom===d||dom.endsWith('.'+d)))return k}
+  return EMAIL_LIVRE?'uece':null; // padrão da demonstração quando EMAIL_LIVRE = true
 }
 function aplicarUni(k){
   const u=UNIS[k];document.documentElement.dataset.uni=k;
+  if(u.foto)document.documentElement.style.setProperty('--foto','url("'+u.foto+'") center/cover no-repeat');else document.documentElement.style.removeProperty('--foto');
   u.loginTitulo=u.slogan+'.';
   document.querySelectorAll('.sg').forEach(e=>e.textContent=u.sigla);
   document.querySelectorAll('.ia').forEach(e=>e.textContent=u.assistente);
@@ -20,14 +21,15 @@ function aplicarUni(k){
   renderPerfil(u);
   renderAjuda(u);
 }
-function entrar(v,k){aplicarUni(k);document.getElementById('pEmail').textContent=v;if(v.includes('@'))document.getElementById('sacEmail').value=v;mostrar('inicio');mostrarDica();document.title='Conecta Aluno – '+UNIS[k].sigla;document.querySelectorAll('.nome').forEach(e=>e.textContent=nomeDe(v));L.classList.add('hide');document.body.style.overflow=''}
-function sair(){aplicarUni('uece');mostrar('inicio');abrirChat(false);document.title='Conecta Aluno';L.classList.remove('hide');document.body.style.overflow='hidden';document.getElementById('pw').value=''}
+function entrar(v,k){aplicarUni(k);document.getElementById('pEmail').textContent=v;if(v.includes('@'))document.getElementById('sacEmail').value=v;mostrar('inicio');mostrarDica();document.dispatchEvent(new Event('ca:entrou'));document.title='Conecta Aluno – '+UNIS[k].sigla;document.querySelectorAll('.nome').forEach(e=>e.textContent=nomeDe(v));L.classList.add('hide');document.body.style.overflow=''}
+function sair(){aplicarUni('uece');mostrar('inicio');abrirChat(false);document.dispatchEvent(new Event('ca:saiu'));document.title='Conecta Aluno';L.classList.remove('hide');document.body.style.overflow='hidden';document.getElementById('pw').value=''}
 aplicarUni('uece');
 try{const s=sessionStorage.getItem('ca_user'),k=sessionStorage.getItem('ca_uni');if(s&&UNIS[k])entrar(s,k);else document.body.style.overflow='hidden'}catch(e){document.body.style.overflow='hidden'}
 document.getElementById('lf').addEventListener('submit',e=>{e.preventDefault();
-  const em=document.getElementById('em').value,pw=document.getElementById('pw').value,err=document.getElementById('err');
+  const em=document.getElementById('em').value.trim(),pw=document.getElementById('pw').value,err=document.getElementById('err');
   if(!em.trim()||!pw.trim()){err.textContent='Preencha e-mail e senha.';return}
   const k=detectar(em);
+  if(!k){err.textContent='Use seu e-mail institucional (ex.: nome@aluno.uece.br, nome@alu.ufc.br ou nome@edu.unifor.br).';return}
   err.textContent='';try{sessionStorage.setItem('ca_user',em);sessionStorage.setItem('ca_uni',k)}catch(x){}entrar(em,k)});
 document.getElementById('out').onclick=()=>{try{sessionStorage.removeItem('ca_user');sessionStorage.removeItem('ca_uni')}catch(x){}sair()};
 
@@ -38,20 +40,12 @@ function mostrar(v){
   window.scrollTo(0,0);
 }
 document.querySelectorAll('[data-view]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();mostrar(a.dataset.view)}));
-function bioSalva(){try{return localStorage.getItem('ca_bio')}catch(e){return null}}
 function renderPerfil(u){
   const p=u.perfil;if(!p)return;
   document.getElementById('pCurso').textContent=p.curso+' - '+u.sigla;
   document.getElementById('pDados').innerHTML=[['Instituição',p.universidade],['Curso',p.curso],['Semestre',p.semestre],['Matrícula',p.matricula],['Campus',p.campus]].map(d=>'<div><dt>'+d[0]+'</dt><dd>'+d[1]+'</dd></div>').join('');
   document.getElementById('pDisc').innerHTML=p.disciplinas.map(d=>'<li>'+d[0]+'<small>'+d[1]+'</small></li>').join('');
-  document.getElementById('pInt').innerHTML=p.interesses.map(i=>'<span>'+i+'</span>').join('');
-  document.getElementById('bioTxt').textContent=bioSalva()||p.bio;
 }
-const bioTxt=document.getElementById('bioTxt'),bioIn=document.getElementById('bioIn'),bioAc=document.getElementById('bioAcoes');
-function editarBio(on){bioTxt.hidden=on;bioIn.hidden=!on;bioAc.hidden=!on;if(on){bioIn.value=bioTxt.textContent;bioIn.focus()}}
-document.getElementById('editBio').onclick=()=>editarBio(bioIn.hidden);
-document.getElementById('bioCancelar').onclick=()=>editarBio(false);
-document.getElementById('bioSalvar').onclick=()=>{const t=bioIn.value.trim();if(t){bioTxt.textContent=t;try{localStorage.setItem('ca_bio',t)}catch(e){}}editarBio(false)};
 
 // Ajuda, SAC e acessibilidade
 function renderAjuda(u){
