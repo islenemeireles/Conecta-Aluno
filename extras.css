@@ -87,3 +87,12 @@ dialog label{display:block;font-weight:600;font-size:13px;margin:12px 0 6px}dial
 /* Avaliação por estrelas */
 .stars{display:flex;gap:4px;margin:8px 0}.stars button{font-size:38px;line-height:1;color:var(--line)}.stars button.on{color:#f5b301}
 .stars button:focus-visible{outline:2px solid var(--pri);outline-offset:2px}
+
+/* Anúncio patrocinado e selo de verificado */
+#demoMural .demo-ad{border-color:var(--pri)}
+#demoMural .demo-avatar{overflow:hidden}.ad-logo{width:100%;height:100%;object-fit:contain}
+.verif{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#1d9bf0;color:#fff;font-size:12px;font-weight:800;margin-left:2px;vertical-align:middle}
+.ad-pill{background:var(--pri-soft);color:var(--pri);border-radius:6px;padding:2px 8px;font-size:12px;font-weight:700}
+#demoMural .demo-restaurar{color:var(--pri);text-decoration:underline;font-size:13px;font-weight:600;padding:4px 0;margin:0 0 8px;display:block}
+.ad-img{display:block;width:100%;max-height:380px;object-fit:cover;border-radius:14px;margin-top:12px}
+.ad-img{width:auto;max-width:min(100%,460px);height:auto;max-height:none}

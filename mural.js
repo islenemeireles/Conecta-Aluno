@@ -5,6 +5,13 @@
     get(key, fallback) { try { const v = JSON.parse(localStorage.getItem(key)); return v ?? fallback; } catch (e) { return fallback; } },
     set(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) { alert('Não foi possível salvar os dados neste navegador.'); } }
   };
+  // Anúncios patrocinados. Coloque a logo e a foto na mesma pasta do index.html e informe os nomes dos arquivos em "logo" e "imagem".
+  // "url": endereço do serviço (deixe '' para esconder o botão). "verificado": mostra o selo azul.
+  const PATROCINADOS = [{
+    id: 'soundsbook', nome: 'Soundsbook', logo: 'logo-soundsbook.png', imagem: 'foto-soundsbook.jpg', verificado: true, url: '',
+    texto: 'Leitura com trilha sonora. 🎧📖\nEscolha um livro, aperte play e deixe a música ajudar você a manter o foco nos intervalos entre as aulas.',
+    botao: 'Conhecer o Soundsbook'
+  }];
   let email = '', filtro = 'all', busca = '';
 
   const nomeAtual = () => ((document.querySelector('.nome') || {}).textContent || 'Estudante').slice(0, 60);
@@ -61,6 +68,36 @@
 
   function el(t, c, x) { const e = document.createElement(t); if (c) e.className = c; if (x !== undefined) e.textContent = x; return e; }
 
+  function anuncio(a) {
+    const card = el('article', 'card demo-post demo-ad');
+    const cab = el('div', 'demo-post-head'), av = el('div', 'demo-avatar');
+    const img = document.createElement('img'); img.src = a.logo; img.alt = 'Logo do ' + a.nome; img.className = 'ad-logo';
+    img.onerror = () => { img.remove(); av.textContent = a.nome.charAt(0); };
+    av.append(img);
+    const nome = el('div', 'demo-author', a.nome + ' ');
+    if (a.verificado) {
+      const v = el('span', 'verif', '✓'); v.setAttribute('role', 'img'); v.setAttribute('aria-label', 'Perfil verificado'); v.title = 'Perfil verificado';
+      nome.append(v);
+    }
+    const dados = el('div'); dados.append(nome, el('span', 'ad-pill', 'Patrocinado'));
+    cab.append(av, dados);
+    const acoes = el('div', 'demo-actions');
+    if (a.url) { const l = el('a', 'btn-link', a.botao || 'Saiba mais'); l.href = a.url; l.target = '_blank'; l.rel = 'noopener sponsored'; acoes.append(l); }
+    const bo = el('button', '', 'Ocultar anúncio'); bo.type = 'button';
+    bo.onclick = () => { setIds('anuncios_ocultos', getIds('anuncios_ocultos').concat(a.id)); render(); };
+    const bd = el('button', '', '🚩 Denunciar'); bd.type = 'button';
+    bd.onclick = () => abrirDenuncia({ id: 'ad-' + a.id, texto: a.nome + ' (anúncio): ' + a.texto });
+    acoes.append(bo, bd);
+    card.append(cab, el('p', 'demo-content', a.texto));
+    if (a.imagem) {
+      const f = document.createElement('img'); f.src = a.imagem; f.alt = 'Imagem do anúncio do ' + a.nome; f.className = 'ad-img'; f.loading = 'lazy';
+      f.onerror = () => f.remove();
+      card.append(f);
+    }
+    card.append(acoes);
+    return card;
+  }
+
   function render() {
     const lista = $('#demoLista');
     lista.replaceChildren();
@@ -69,6 +106,17 @@
     if (filtro === 'saved') { const fav = getIds('favoritos'); posts = posts.filter(p => fav.includes(p.id)); }
     if (busca) posts = posts.filter(p => (p.texto + ' ' + p.nome).toLowerCase().includes(busca));
 
+    if (filtro === 'all' && !busca) {
+      const ocultos = getIds('anuncios_ocultos');
+      const visiveis = PATROCINADOS.filter(a => !ocultos.includes(a.id));
+      visiveis.forEach(a => lista.append(anuncio(a)));
+      const n = PATROCINADOS.length - visiveis.length;
+      if (n) {
+        const r = el('button', 'demo-restaurar', 'Mostrar anúncios ocultos (' + n + ')'); r.type = 'button';
+        r.onclick = () => { setIds('anuncios_ocultos', []); render(); };
+        lista.append(r);
+      }
+    }
     if (!posts.length) {
       lista.append(el('div', 'card demo-empty',
         busca ? 'Nenhuma publicação encontrada para "' + busca + '".' :
